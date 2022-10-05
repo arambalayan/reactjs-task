@@ -26,6 +26,7 @@ const Main = () => {
         picId = id
         dispatch(pokemonAsync(offset + 16))
         setLoading(true)
+        setValue("")
     }
 
     const prevData = () => {
@@ -34,6 +35,7 @@ const Main = () => {
         picId = id
         dispatch(pokemonAsync(offset))
         setLoading(true)
+        setValue("")
     }
 
     const moreInfo = (id) => {
@@ -61,7 +63,7 @@ const Main = () => {
             <div className="header">
                 <img src={img} alt="img"/>
             </div>
-            <input type="text" onChange={handleSearch} placeholder="Search"/>
+            <input type="text" onChange={handleSearch} placeholder="Search" value={value}/>
             <div className="blocks">
                 {data && data
                     .filter(name => value.length > 2 ? name.name.toLowerCase().includes(value.toLowerCase()) : name)
